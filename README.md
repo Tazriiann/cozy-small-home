@@ -1,4 +1,4 @@
-# Cozy Small Home — blog.tazrian.me
+# Cozy Small Home — homedecor.tazrian.me
 
 A complete, professional, static blog for Cozy Small Home (Pinterest @thecozysmallhome).
 Budget home decor for small apartments and tiny rooms, US audience.
@@ -11,7 +11,7 @@ Budget home decor for small apartments and tiny rooms, US audience.
 - `styles.css` — one shared stylesheet, mobile-first
 - `assets/logo.png` — profile-picture house logo
 - `assets/banner.png` — living-room banner (also used as the homepage hero)
-- `CNAME` — contains `blog.tazrian.me`
+- `CNAME` — contains `homedecor.tazrian.me`
 - `ads.txt` — placeholder publisher ID, must be replaced after AdSense approval
 - `robots.txt`, `sitemap.xml` (home + About + 10 posts only — the indexable pages)
 - `404.html` — custom not-found page (GitHub Pages serves it automatically)
@@ -51,7 +51,7 @@ There is also an **Auto Ads script in `<head>`**, commented out. Auto Ads lets G
 
 **Do NOT apply for AdSense at 10 posts.** Google publishes no minimum, but the community-observed reliable floor is ~15–25 substantial (800–1,000+ word) original posts, About/Privacy/Contact pages, HTTPS, at least 10 URLs indexed in Google Search Console, and some real organic traffic. "Low value content" is the commonest rejection. Wait until the blog has ~20–25 posts plus real organic traffic, then apply. Ads also slow the site (Core Web Vitals) — another reason to delay.
 
-1. Apply at adsense.google.com with the site `blog.tazrian.me` — only once the conditions above are met.
+1. Apply at adsense.google.com with the site `homedecor.tazrian.me` — only once the conditions above are met.
 2. When approved, Google gives you a publisher ID like `ca-pub-1234567890123456`.
 3. In every HTML file: find `ca-pub-0000000000000000` and replace it with your real ID, and remove the `<!--` and `-->` around the AdSense blocks you want to use. Then add the class `active` to the slot, or change the CSS to `.ad-slot.active { display:block; }` — the stylesheet already includes `.ad-slot.active`.
 4. In `ads.txt`: replace `pub-0000000000000000` with the digits after `ca-pub-` in your publisher ID. Keep the rest of the line identical.
@@ -62,9 +62,9 @@ There is also an **Auto Ads script in `<head>`**, commented out. Auto Ads lets G
 1. **Create a new repo** on GitHub (do NOT use `Tazriiann.github.io` — that is the portfolio). Name it e.g. `cozy-small-home` or `blog`.
 2. **Upload everything in this folder** to the repo root (index.html, styles.css, about.html, contact.html, privacy-policy.html, disclaimer.html, posts/, assets/, CNAME, ads.txt, robots.txt, sitemap.xml). Upload via the GitHub web UI: Add file → Upload files, then Commit. `build.py` / `posts_content.py` can be left out.
 3. **Turn on Pages:** repo → Settings → Pages → Source: Deploy from a branch, Branch: `main`, Folder: `/ (root)`. Save.
-4. **Custom domain:** in Pages settings, set Custom domain to `blog.tazrian.me` and save. GitHub will write the CNAME for you (the CNAME file is already here as a backup).
+4. **Custom domain:** in Pages settings, set Custom domain to `homedecor.tazrian.me` and save. GitHub will write the CNAME for you (the CNAME file is already here as a backup).
 5. **DNS:** in the DNS settings for `tazrian.me`, add a CNAME record: host `blog` → `Tazriiann.github.io` (your GitHub Pages address). Do NOT change the existing records for `tazrian.me` itself.
-6. **Wait:** DNS + the HTTPS certificate usually take 15 minutes to a few hours (up to ~24 h for the certificate). Then open https://blog.tazrian.me — it should show the homepage.
+6. **Wait:** DNS + the HTTPS certificate usually take 15 minutes to a few hours (up to ~24 h for the certificate). Then open https://homedecor.tazrian.me — it should show the homepage.
 7. **Enforce HTTPS:** in Pages settings, tick **Enforce HTTPS** — but only once the certificate is ready (the checkbox appears after it is issued). All images and links on the site already use HTTPS.
 8. **Claim the site on Pinterest** (Settings → Claim) once it is live, and add the blog link to the Pinterest profile.
 
@@ -75,7 +75,7 @@ Every page has:
 - `<meta name="description">` 120–160 characters, unique per page, with the main keyword and a price/budget/audience detail
 - `<meta name="robots" content="max-image-preview:large">` (needed for Google Discover large cards)
 - One `<h1>` per page (the post title), H2s as questions with a 40–60-word direct answer first, H3s for sub-points; the keyword appears naturally in the H1, first paragraph and 1–2 H2s — no stuffing, no hidden text
-- Absolute canonical link to its own `blog.tazrian.me` URL; one canonical host everywhere
+- Absolute canonical link to its own `homedecor.tazrian.me` URL; one canonical host everywhere
 - Open Graph + Twitter card meta (title, description, image — post images are 1200×630 crops for social cards)
 - JSON-LD: `BlogPosting` + `BreadcrumbList` + `FAQPage` on every post, `WebSite` on the homepage only (no SearchAction — the site has no search). FAQPage markup is kept for AI/answer extraction; Google restricted FAQ rich results in Aug 2023, so do not expect SERP dropdowns.
 - Descriptive image alt text (80–125 chars, broad keyword included once), `width`/`height` set to prevent layout shift, hero image eager, below-fold images lazy-loaded; Unsplash images use `?auto=format&fit=crop&w=1200&q=80` — `auto=format` already negotiates WebP/AVIF in supporting browsers (forcing `&fm=webp` measured larger: 351 KB vs 285 KB JPEG, so it is not used); og:image is a 1200×630 crop
@@ -87,8 +87,8 @@ Every page has:
 
 ## After publishing — Google Search Console + Analytics (taz does this)
 
-1. **Google Search Console — Domain property (do this first):** go to search.google.com/search-console → Add property → **Domain** → enter `tazrian.me` (bare domain, no `https://`). Verify once via the **DNS TXT record** at the domain registrar/DNS host. A Domain property covers every subdomain and protocol, so `blog.tazrian.me` is included automatically — no second verification, no meta tag needed. (A URL-prefix property for `https://blog.tazrian.me/` would NOT cover the root domain.)
-2. **Submit the sitemap:** in GSC, Indexing → Sitemaps → enter `https://blog.tazrian.me/sitemap.xml`. Status should become "Success".
+1. **Google Search Console — Domain property (do this first):** go to search.google.com/search-console → Add property → **Domain** → enter `tazrian.me` (bare domain, no `https://`). Verify once via the **DNS TXT record** at the domain registrar/DNS host. A Domain property covers every subdomain and protocol, so `homedecor.tazrian.me` is included automatically — no second verification, no meta tag needed. (A URL-prefix property for `https://homedecor.tazrian.me/` would NOT cover the root domain.)
+2. **Submit the sitemap:** in GSC, Indexing → Sitemaps → enter `https://homedecor.tazrian.me/sitemap.xml`. Status should become "Success".
 3. **Request indexing for the homepage + each of the 10 posts only:** URL Inspection → paste URL → "Request indexing". Do the 10 most important pages only; Google limits daily requests, repeat requests do not speed things up, and a request does not guarantee indexing.
 4. **Google Analytics 4:** create a GA4 property + web data stream, copy the Measurement ID (`G-XXXXXXXXXX`), and paste it into the commented-out GA4 block in `build.py` (`GA4_HEAD`), then re-run `build.py` and re-upload. Set data retention to 14 months. Link GSC ↔ GA4 (GA4 Admin → Product links → Search Console links).
 5. **Bing Webmaster Tools** (free): add the site, verify with the same DNS TXT record or an HTML file, submit the same sitemap. Bing powers some AI surfaces.

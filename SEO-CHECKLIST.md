@@ -1,13 +1,13 @@
-# SEO Checklist — Cozy Small Home (blog.tazrian.me)
+# SEO Checklist — Cozy Small Home (homedecor.tazrian.me)
 
 Applies the SEO research spec (Nov 17, 2026). Verified with `verify_blog.py` in this folder (re-run after any rebuild: `python3 verify_blog.py`). Last verified: Nov 17, 2026 — **PASS**.
 
 ## 1. Technical base (day 1)
 
-- [x] **One canonical host** — `https://blog.tazrian.me` everywhere: every canonical, sitemap URL, internal link and `og:url`. No `www`, no `*.github.io`, no `tazrian.me/blog` variants linked anywhere.
+- [x] **One canonical host** — `https://homedecor.tazrian.me` everywhere: every canonical, sitemap URL, internal link and `og:url`. No `www`, no `*.github.io`, no `tazrian.me/blog` variants linked anywhere.
 - [x] **HTTPS** — all images, links and scripts use HTTPS. Taz must still tick **Enforce HTTPS** in GitHub Pages settings once the certificate is issued (see README).
 - [x] **Sitemap** — hand-written `sitemap.xml`: exactly the indexable pages (home + About + 10 posts = 12 URLs), absolute URLs, accurate `<lastmod>2026-11-17</lastmod>`. No `<priority>` / `<changefreq>` (Google ignores them). Contact/Privacy/Disclaimer/404/archive are deliberately excluded — useful pages, not index targets.
-- [x] **robots.txt** — `User-agent: *`, `Allow: /`, `Sitemap: https://blog.tazrian.me/sitemap.xml`. CSS/JS/images are not blocked.
+- [x] **robots.txt** — `User-agent: *`, `Allow: /`, `Sitemap: https://homedecor.tazrian.me/sitemap.xml`. CSS/JS/images are not blocked.
 - [x] **404.html** — custom not-found page at the root (GitHub Pages serves it automatically). Not in the sitemap.
 - [x] **No orphans** — every post is 1 click from the homepage (featured grid + latest list) and linked from the footer/archive. `archive.html` (all-posts page, linked in the footer) is a second discovery path for crawlers and readers.
 - [x] **URLs** — short, lowercase, hyphens, keyword-first, no dates, `.html` form used consistently in canonical/sitemap/internal links. Slugs were NOT changed to keyword-stacked forms (e.g. `/small-bedroom-ideas-renters-budget.html`): the current slugs are shorter and already keyword-first; changing them would add no ranking value. Do NOT change URLs after publishing.
@@ -82,7 +82,7 @@ Every post targets TWO keywords on the same page: the **primary** renter/budget 
 
 ## 9. Measurement — still needs taz (not done by Wally)
 
-- [ ] **Google Search Console — Domain property for `tazrian.me`** via DNS TXT record (covers `blog.tazrian.me` automatically). Then submit sitemap, request indexing for home + 10 posts only. See README "After publishing".
+- [ ] **Google Search Console — Domain property for `tazrian.me`** via DNS TXT record (covers `homedecor.tazrian.me` automatically). Then submit sitemap, request indexing for home + 10 posts only. See README "After publishing".
 - [ ] **GA4** — create a property, paste the Measurement ID (`G-XXXXXXXXXX`) into the commented-out GA4 block in `build.py`, re-run `build.py`, re-upload. Set retention to 14 months; link GSC ↔ GA4.
 - [ ] **Bing Webmaster Tools** — same sitemap, verify via DNS TXT or HTML file.
 - [ ] **Weekly GSC check** — queries at positions 8–30 (strengthen with a dedicated H2/FAQ + new detail, then request re-indexing); indexation; Core Web Vitals; Manual Actions (should stay empty).
