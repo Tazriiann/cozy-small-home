@@ -13,7 +13,7 @@ Budget home decor for small apartments and tiny rooms, US audience.
 - `assets/banner.png` — living-room banner (also used as the homepage hero)
 - `CNAME` — contains `homedecor.tazrian.me`
 - `ads.txt` — placeholder publisher ID, must be replaced after AdSense approval
-- `robots.txt`, `sitemap.xml` (home + About + 20 posts only — the indexable pages)
+- `robots.txt`, `sitemap.xml` (home + About + 30 posts only — the indexable pages)
 - `404.html` — custom not-found page (GitHub Pages serves it automatically)
 - `archive.html` — all-posts archive page, a second discovery path for readers and crawlers
 - `SEO-CHECKLIST.md` — the full SEO checklist: what was applied and what still needs taz
@@ -82,14 +82,14 @@ Every page has:
 - Content clusters: Cluster A (bedrooms & living, pillar "How to Make a Small Room Look Bigger Without Painting") and Cluster B (kitchens, bathrooms & storage, pillar "12 Clever Storage Ideas for Tiny Apartments"). Every post has 3–5 contextual internal links in body copy, links to its pillar in the first paragraphs, and the pillars link to all their supporting posts. No orphan pages; every post is 1–2 clicks from the homepage, plus an `archive.html` page as a second discovery path.
 - Keywords retargeted at long-tail, modifier-stacked phrases (room + renter/budget/under-$X), e.g. "small bedroom ideas for renters on a budget", "small bathroom storage under $25", "small living room makeover on a $200 budget". The bare head term "best small space furniture" was deferred and narrowed to "best small space furniture for studio apartments under $200".
 - **Dual-keyword strategy (taz, Nov 17):** every post targets TWO keywords on the same page — the primary renter/budget long-tail (in title/H1, winnable in months 3–6) AND the plain broad term (used naturally in the intro, at least 2 H2s, alt text, internal-link anchors and FAQ, to climb for it as the site gains authority in months 6–12+). No separate post for the broad term — that would cannibalise. See `SEO-CHECKLIST.md` for the primary + secondary keyword per post.
-- Clean URLs, short, lowercase, hyphens, keyword-first, `.html` form used consistently in canonical/sitemap/internal links; `sitemap.xml` lists exactly the indexable pages (home + About + 20 posts) with accurate lastmod; `robots.txt` is `Allow: /` + Sitemap line; `404.html` included
+- Clean URLs, short, lowercase, hyphens, keyword-first, `.html` form used consistently in canonical/sitemap/internal links; `sitemap.xml` lists exactly the indexable pages (home + About + 30 posts) with accurate lastmod; `robots.txt` is `Allow: /` + Sitemap line; `404.html` included
 - Fast: one small CSS file (~8 KB), no JavaScript at all on the live pages (AdSense/GA4 scripts are commented out), system fonts only — no external fonts. Targets: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1; tap targets ≥ 48 px on nav/buttons/share; no horizontal scroll at 375 px
 
 ## After publishing — Google Search Console + Analytics (taz does this)
 
 1. **Google Search Console — Domain property (do this first):** go to search.google.com/search-console → Add property → **Domain** → enter `tazrian.me` (bare domain, no `https://`). Verify once via the **DNS TXT record** at the domain registrar/DNS host. A Domain property covers every subdomain and protocol, so `homedecor.tazrian.me` is included automatically — no second verification, no meta tag needed. (A URL-prefix property for `https://homedecor.tazrian.me/` would NOT cover the root domain.)
 2. **Submit the sitemap:** in GSC, Indexing → Sitemaps → enter `https://homedecor.tazrian.me/sitemap.xml`. Status should become "Success".
-3. **Request indexing for the homepage + each of the 20 posts only:** URL Inspection → paste URL → "Request indexing". Do the 10 most important pages only; Google limits daily requests, repeat requests do not speed things up, and a request does not guarantee indexing.
+3. **Request indexing for the homepage + each of the 30 posts only:** URL Inspection → paste URL → "Request indexing". Do the 10 most important pages only; Google limits daily requests, repeat requests do not speed things up, and a request does not guarantee indexing.
 4. **Google Analytics 4:** create a GA4 property + web data stream, copy the Measurement ID (`G-XXXXXXXXXX`), and paste it into the commented-out GA4 block in `build.py` (`GA4_HEAD`), then re-run `build.py` and re-upload. Set data retention to 14 months. Link GSC ↔ GA4 (GA4 Admin → Product links → Search Console links).
 5. **Bing Webmaster Tools** (free): add the site, verify with the same DNS TXT record or an HTML file, submit the same sitemap. Bing powers some AI surfaces.
 6. **Weekly GSC check (15 min):** Performance → Search results — watch for target queries at positions 8–30 (near-wins to strengthen with a dedicated H2/FAQ + a paragraph of new detail, then request re-indexing). Indexing → Pages — investigate "Crawled – currently not indexed" (thin/duplicate content) and "Discovered – currently not indexed" (improve internal linking + content). Check Core Web Vitals + Mobile Usability, fix "Poor" URLs first.

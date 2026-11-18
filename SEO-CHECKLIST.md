@@ -6,7 +6,7 @@ Applies the SEO research spec (Nov 17, 2026). Verified with `verify_blog.py` in 
 
 - [x] **One canonical host** — `https://homedecor.tazrian.me` everywhere: every canonical, sitemap URL, internal link and `og:url`. No `www`, no `*.github.io`, no `tazrian.me/blog` variants linked anywhere.
 - [x] **HTTPS** — all images, links and scripts use HTTPS. Taz must still tick **Enforce HTTPS** in GitHub Pages settings once the certificate is issued (see README).
-- [x] **Sitemap** — hand-written `sitemap.xml`: exactly the indexable pages (home + About + 20 posts = 22 URLs), absolute URLs, accurate `<lastmod>2026-11-17</lastmod>`. No `<priority>` / `<changefreq>` (Google ignores them). Contact/Privacy/Disclaimer/404/archive are deliberately excluded — useful pages, not index targets.
+- [x] **Sitemap** — hand-written `sitemap.xml`: exactly the indexable pages (home + About + 30 posts = 32 URLs), absolute URLs, accurate `<lastmod>2026-11-17</lastmod>`. No `<priority>` / `<changefreq>` (Google ignores them). Contact/Privacy/Disclaimer/404/archive are deliberately excluded — useful pages, not index targets.
 - [x] **robots.txt** — `User-agent: *`, `Allow: /`, `Sitemap: https://homedecor.tazrian.me/sitemap.xml`. CSS/JS/images are not blocked.
 - [x] **404.html** — custom not-found page at the root (GitHub Pages serves it automatically). Not in the sitemap.
 - [x] **No orphans** — every post is 1 click from the homepage (featured grid + latest list) and linked from the footer/archive. `archive.html` (all-posts page, linked in the footer) is a second discovery path for crawlers and readers.
@@ -82,7 +82,7 @@ Every post targets TWO keywords on the same page: the **primary** renter/budget 
 
 ## 9. Measurement — still needs taz (not done by Wally)
 
-- [ ] **Google Search Console — Domain property for `tazrian.me`** via DNS TXT record (covers `homedecor.tazrian.me` automatically). Then submit sitemap, request indexing for home + 20 posts only. See README "After publishing".
+- [ ] **Google Search Console — Domain property for `tazrian.me`** via DNS TXT record (covers `homedecor.tazrian.me` automatically). Then submit sitemap, request indexing for home + 30 posts only. See README "After publishing".
 - [ ] **GA4** — create a property, paste the Measurement ID (`G-XXXXXXXXXX`) into the commented-out GA4 block in `build.py`, re-run `build.py`, re-upload. Set retention to 14 months; link GSC ↔ GA4.
 - [ ] **Bing Webmaster Tools** — same sitemap, verify via DNS TXT or HTML file.
 - [ ] **Weekly GSC check** — queries at positions 8–30 (strengthen with a dedicated H2/FAQ + new detail, then request re-indexing); indexation; Core Web Vitals; Manual Actions (should stay empty).
@@ -99,7 +99,7 @@ Indexing in days; impressions in 1–3 months; measurable Google traffic in 3–
 
 ## Verification summary (Nov 17, 2026)
 
-- `verify_blog.py`: **PASS** — titles 50–60, descriptions 120–160, 1 H1/page, canonicals, OG/Twitter, `max-image-preview:large`, valid JSON-LD (BlogPosting + BreadcrumbList + FAQPage ≥4 Qs), sitemap = 22 URLs, no broken internal links, no British spellings, no affiliate hrefs, word counts in range, FAQ = 5/post, in-body links ≥3/post, broad keyword in lead/≥2 H2s/FAQ/incoming anchors, question-H2 answers 48–60 words.
+- `verify_blog.py`: **PASS** — titles 50–60, descriptions 120–160, 1 H1/page, canonicals, OG/Twitter, `max-image-preview:large`, valid JSON-LD (BlogPosting + BreadcrumbList + FAQPage ≥4 Qs), sitemap = 32 URLs, no broken internal links, no British spellings, no affiliate hrefs, word counts in range, FAQ = 5/post, in-body links ≥3/post, broad keyword in lead/≥2 H2s/FAQ/incoming anchors, question-H2 answers 48–60 words.
 - Local HTTP check: all 21 URLs return 200 (15 HTML pages + robots/sitemap/ads.txt/styles.css/logo/banner).
 - All image URLs return HTTP 200 via curl; the 2 local heroes are now 141 KB and 67 KB, the other 8 Unsplash heroes 90–200 KB.
 - Headless Chromium (Playwright): no horizontal overflow at 375 px or 1280 px on homepage, bedroom post and before/after post; screenshots read visually (homepage hero text collision fixed by swapping the baked-text banner for a plain Unsplash photo). Note: in this sandbox the Playwright browser's proxy blocks external hosts (`ERR_TUNNEL_CONNECTION_FAILED`), so Unsplash images render as alt text in screenshots only — real visitors load them fine (curl 200).
